@@ -52,4 +52,4 @@ function calculate(s: string): number {
 
     return result;
 };
-console.log(calculate("8+8/2"));
+console.log(calculate("18+8/2"));
