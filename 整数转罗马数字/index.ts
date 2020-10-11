@@ -52,7 +52,6 @@ function intToRoman(num: number): string {
     ten = (num % 1000 % 500 % 100 % 50 - num % 1000 % 500 % 100 % 50 % 10) / 10;
     five = (num % 1000 % 500 % 100 % 50 % 10 - num % 1000 % 500 % 100 % 50 % 10 % 5) / 5;
     one = (num % 1000 % 500 % 100 % 50 % 10 % 5 - num % 1000 % 500 % 100 % 50 % 10 % 5 % 1) / 1;
-    console.log(num, oneThousand, fiveHundred, oneHundred, fifty, ten, five, one);
     if (oneThousand > 0) {
         for (let index = 0; index < oneThousand; index++) {
             result += 'M';
@@ -88,6 +87,13 @@ function intToRoman(num: number): string {
             result += 'I';
         }
     }
+    // 处理特殊情况
+    result.indexOf('DCCCC') !== -1 && (result = result.replace('DCCCC', 'CM'));
+    result.indexOf('CCCC') !== -1 && (result = result.replace('CCCC', 'CD'));
+    result.indexOf('LXXXX') !== -1 && (result = result.replace('LXXXX', 'XC'));
+    result.indexOf('XXXX') !== -1 && (result = result.replace('XXXX', 'XL'));
+    result.indexOf('VIIII') !== -1 && (result = result.replace('VIIII', 'IX'));
+    result.indexOf('IIII') !== -1 && (result = result.replace('IIII', 'IV'));
     return result;
 };
 
