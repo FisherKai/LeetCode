@@ -1,4 +1,5 @@
 /**
+ * https://leetcode-cn.com/problems/string-to-integer-atoi/solution/
  * @param {string} s
  * @return {number}
  */
